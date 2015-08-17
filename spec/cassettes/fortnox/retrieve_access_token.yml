@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - '*/*'
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Authorization-Code:
+      - 52420a95-3e6c-50d7-63b2-abcfdfa3e588
+      Client-Secret:
+      - GkEhaNS5h9
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 11 Sep 2014 12:52:53 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '34'
+      X-Uid:
+      - 534c28dd
+      X-Build:
+      - '53483'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Authorization":{"AccessToken":"dd49b5e5-032d-424b-93ad-7a62e15064c6"}}'
+    http_version: 
+  recorded_at: Thu, 11 Sep 2014 12:52:53 GMT
+recorded_with: VCR 2.7.0

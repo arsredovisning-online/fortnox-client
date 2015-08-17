@@ -1,0 +1,52 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/1931?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 18 Sep 2014 06:57:43 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '22'
+      X-Uid:
+      - 665e04d8
+      X-Build:
+      - '53646'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/1931?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":3002.91,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"F\u00f6retagskonto,
+        Swedbank","Number":1931,"Project":0,"ProjectSettings":"ALLOWED","SRU":7281,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Thu, 18 Sep 2014 06:57:43 GMT
+recorded_with: VCR 2.7.0

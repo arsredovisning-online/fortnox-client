@@ -1,0 +1,51 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/financialyears?date=2011-06-13
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Sep 2014 18:43:09 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '38'
+      X-Uid:
+      - 8a3093cb
+      X-Build:
+      - '53483'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"MetaInformation":{"@TotalResources":0,"@TotalPages":0,"@CurrentPage":1},"FinancialYears":[]}'
+    http_version: 
+  recorded_at: Fri, 12 Sep 2014 18:43:10 GMT
+recorded_with: VCR 2.7.0

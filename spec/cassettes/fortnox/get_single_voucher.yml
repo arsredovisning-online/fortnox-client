@@ -1,0 +1,56 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/vouchers/A/17?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Thu, 18 Sep 2014 05:45:22 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '192'
+      X-Uid:
+      - e892012d
+      X-Build:
+      - '53646'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Voucher":{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/17?financialyear=2","Comments":null,"CostCenter":"","Description":"Programvara","Project":0,"ReferenceNumber":"","ReferenceType":"MANUAL","TransactionDate":"2011-09-22","VoucherNumber":17,"VoucherRows":[{"Account":5420,"CostCenter":"","Credit":0,"Description":"Programvaror","Debit":370.78,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":1910,"CostCenter":"","Credit":370.78,"Description":"Kassa","Debit":0,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":2640,"CostCenter":"","Credit":0,"Description":"Ing\u00e5ende
+        moms","Debit":92.7,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":2614,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
+        utg\u00e5ende moms p\u00e5 tj\u00e4nstef\u00f6rv\u00e4rv fr\u00e5n utlandet,
+        oreducerad","Debit":0,"Project":0,"Removed":1,"TransactionInformation":""},{"Account":2615,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
+        utg\u00e5ende moms p\u00e5 varuf\u00f6rv\u00e4rv fr\u00e5n annat EU-land,
+        oreducerad","Debit":0,"Project":0,"Removed":0,"TransactionInformation":""}],"VoucherSeries":"A","Year":2}}'
+    http_version: 
+  recorded_at: Thu, 18 Sep 2014 05:45:22 GMT
+recorded_with: VCR 2.7.0

@@ -1,0 +1,41 @@
+PATH
+  remote: .
+  specs:
+    fortnox-client (0.0.1)
+      net-http-persistent
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    addressable (2.3.8)
+    crack (0.4.2)
+      safe_yaml (~> 1.0.0)
+    diff-lcs (1.2.5)
+    net-http-persistent (2.9.4)
+    rspec (3.3.0)
+      rspec-core (~> 3.3.0)
+      rspec-expectations (~> 3.3.0)
+      rspec-mocks (~> 3.3.0)
+    rspec-core (3.3.2)
+      rspec-support (~> 3.3.0)
+    rspec-expectations (3.3.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-mocks (3.3.2)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.3.0)
+    rspec-support (3.3.0)
+    safe_yaml (1.0.4)
+    vcr (2.9.3)
+    webmock (1.21.0)
+      addressable (>= 2.3.6)
+      crack (>= 0.3.2)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  fortnox-client!
+  rspec
+  vcr
+  webmock

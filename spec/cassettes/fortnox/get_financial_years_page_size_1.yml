@@ -1,0 +1,99 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/financialyears?limit=1
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Sep 2014 13:41:25 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '28'
+      X-Uid:
+      - 087be66c
+      X-Build:
+      - '53483'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"MetaInformation":{"@TotalResources":2,"@TotalPages":2,"@CurrentPage":1},"FinancialYears":[{"@url":"https:\/\/api.fortnox.se\/3\/financialyears\/1","Id":1,"FromDate":"2014-01-01","ToDate":"2014-12-31"}]}'
+    http_version: 
+  recorded_at: Fri, 12 Sep 2014 13:41:25 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/financialyears?limit=1&page=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 12 Sep 2014 13:41:25 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '28'
+      X-Uid:
+      - f706a81b
+      X-Build:
+      - '53483'
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"MetaInformation":{"@TotalResources":2,"@TotalPages":2,"@CurrentPage":2},"FinancialYears":[{"@url":"https:\/\/api.fortnox.se\/3\/financialyears\/2","Id":2,"FromDate":"2011-07-13","ToDate":"2012-12-31"}]}'
+    http_version: 
+  recorded_at: Fri, 12 Sep 2014 13:41:25 GMT
+recorded_with: VCR 2.7.0
