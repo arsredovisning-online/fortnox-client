@@ -1,3 +1,4 @@
+#encoding: utf-8
 require 'fast_spec_helper'
 require_from_root 'lib/fortnox/fortnox_account_summarizer'
 
@@ -9,10 +10,10 @@ describe FortnoxAccountSummarizer do
   let(:summarizer) { FortnoxAccountSummarizer.new(api, start_date, end_date) }
 
   account_data = {
-      url1910: {account: 1910, balance_brought_forward: 0, balance_carried_forward: 1910.19},
-      url2610: {account: 2610, balance_brought_forward: 0, balance_carried_forward: 2610.26},
-      url3010: {account: 3010, balance_brought_forward: 0, balance_carried_forward: 3010.30},
-      url5410: {account: 5410, balance_brought_forward: 0, balance_carried_forward: 5410.54},
+      url1910: {account: 1910, balance_brought_forward: 0, balance_carried_forward: 1910.19, description: 'Kassa'},
+      url2610: {account: 2610, balance_brought_forward: 0, balance_carried_forward: 2610.26, description: 'Utgående moms'},
+      url3010: {account: 3010, balance_brought_forward: 0, balance_carried_forward: 3010.30, description: 'Försäljning'},
+      url5410: {account: 5410, balance_brought_forward: 0, balance_carried_forward: 5410.54, description: 'Förbrukningsinventarier'},
   }
 
   before do
@@ -42,6 +43,17 @@ describe FortnoxAccountSummarizer do
       })
     end
 
+  end
+
+  context 'account descriptions' do
+    it 'returns the "descriptions" for each account' do
+      expect(summarizer.account_descriptions([1910, 2610, 3010, 5410])).to eq( {
+          1910 => 'Kassa',
+          2610 => 'Utgående moms',
+          3010 => 'Försäljning',
+          5410 => 'Förbrukningsinventarier'
+      })
+    end
   end
 end
 

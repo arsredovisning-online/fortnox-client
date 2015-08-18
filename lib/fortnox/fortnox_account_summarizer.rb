@@ -17,6 +17,14 @@ class FortnoxAccountSummarizer
     ]
   end
 
+  def account_descriptions(accounts)
+    Hash[
+      accounts.map {|account|
+        [account, data[account][:description]]
+      }
+    ]
+  end
+
   private
 
   def data
