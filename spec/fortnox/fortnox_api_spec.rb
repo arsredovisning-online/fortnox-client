@@ -51,17 +51,24 @@ describe FortnoxApi, :vcr do
       end
     end
 
+    it 'gets limited voucher list' do
+      expected_result = (1..19).map { |voucher| "https://api.fortnox.se/3/vouchers/A/#{voucher}?financialyear=2" }
+      VCR.use_cassette "fortnox/get_limited_voucher_list" do
+        expect(api.get_voucher_urls(2, Date.new(2011,9,30))).to eq expected_result
+      end
+    end
+
     it 'gets single voucher' do
       VCR.use_cassette "fortnox/get_single_voucher" do
         url = "https://api.fortnox.se/3/vouchers/A/17?financialyear=2"
         expected_result = {
             voucher_number: 17,
             rows: [
-                OpenStruct.new(account: 5420, credits: 0, debit: 370.78),
-                OpenStruct.new(account: 1910, credits: 370.78, debit: 0),
-                OpenStruct.new(account: 2640, credits: 0, debit: 92.7),
-                OpenStruct.new(account: 2614, credits: 92.7, debit: 0),
-                OpenStruct.new(account: 2615, credits: 92.7, debit: 0),
+                OpenStruct.new(account: 5420, credit: 0, debit: 370.78),
+                OpenStruct.new(account: 1910, credit: 370.78, debit: 0),
+                OpenStruct.new(account: 2640, credit: 0, debit: 92.7),
+                OpenStruct.new(account: 2614, credit: 92.7, debit: 0),
+                OpenStruct.new(account: 2615, credit: 92.7, debit: 0),
             ]
         }
         expect(api.get_voucher(url)).to eq expected_result

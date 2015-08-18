@@ -3,6 +3,7 @@ require_relative 'result_enumerator'
 require_relative 'null_logger'
 require 'ostruct'
 require 'json'
+require 'bigdecimal/util'
 
 class FortnoxApi
 
@@ -25,8 +26,9 @@ class FortnoxApi
     -1
   end
 
-  def get_voucher_urls(financial_year_id)
+  def get_voucher_urls(financial_year_id, to_date = nil)
     params = {limit: page_size, financialyear: financial_year_id}
+    params[:todate] = to_date.iso8601 if to_date
     ResultEnumerator.new(client, 'vouchers', 'Vouchers', params).map { |voucher| voucher['@url'] }
   end
 
@@ -34,7 +36,7 @@ class FortnoxApi
     response = client.get(FortnoxUrl.new(url))
     voucher = JSON.parse(response)['Voucher']
     rows = voucher['VoucherRows'].map do |voucher_row|
-      OpenStruct.new(account: voucher_row['Account'], credits: voucher_row['Credit'], debit: voucher_row['Debit'])
+      OpenStruct.new(account: voucher_row['Account'], credit: decimal(voucher_row['Credit']), debit: decimal(voucher_row['Debit']))
     end
     { voucher_number: voucher['VoucherNumber'], rows: rows}
   end
@@ -50,11 +52,15 @@ class FortnoxApi
     response = client.get(FortnoxUrl.new(url))
     account = JSON.parse(response)['Account']
     OpenStruct.new(account: account['Number'],
-                   balance_brought_forward: account['BalanceBroughtForward'],
-                   balance_carried_forward: account['BalanceCarriedForward'])
+                   balance_brought_forward: decimal(account['BalanceBroughtForward']),
+                   balance_carried_forward: decimal(account['BalanceCarriedForward']))
   end
 
   private
 
   attr_reader :client, :page_size
+
+  def decimal(number)
+    number.to_d.truncate(2)
+  end
 end

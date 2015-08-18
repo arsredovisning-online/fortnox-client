@@ -1,0 +1,55 @@
+---
+http_interactions:
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/vouchers?financialyear=2&limit=100&todate=2011-09-30
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Tue, 18 Aug 2015 13:01:47 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '73'
+      X-Uid:
+      - aa2fe109
+      X-Build:
+      - 7aa924b595
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"MetaInformation":{"@TotalResources":19,"@TotalPages":1,"@CurrentPage":1},"Vouchers":[{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/1?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":1,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/2?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":2,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/3?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":3,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/4?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":4,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/5?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":5,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/6?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":6,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/7?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":7,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/8?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":8,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/9?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":9,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/10?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":10,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/11?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":11,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/12?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":12,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/13?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":13,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/14?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":14,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/15?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":15,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/16?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":16,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/17?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":17,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/18?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":18,"VoucherSeries":"A","Year":2},{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/19?financialyear=2","ReferenceNumber":"","ReferenceType":"MANUAL","VoucherNumber":19,"VoucherSeries":"A","Year":2}]}'
+    http_version: 
+  recorded_at: Tue, 18 Aug 2015 13:01:50 GMT
+recorded_with: VCR 2.9.3
