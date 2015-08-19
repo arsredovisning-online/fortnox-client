@@ -52,6 +52,7 @@ class FortnoxApi
     response = client.get(FortnoxUrl.new(url))
     account = JSON.parse(response)['Account']
     OpenStruct.new(account: account['Number'],
+                   description: account['Description'],
                    balance_brought_forward: decimal(account['BalanceBroughtForward']),
                    balance_carried_forward: decimal(account['BalanceCarriedForward']))
   end
