@@ -16,7 +16,7 @@ class FortnoxAccountBalances
     ]
   end
 
-  def account_balances(accounts)
+  def account_balances(accounts = all_accounts)
     balances = Hash[
         accounts.map {|account|
           [account, BigDecimal.new(account_data[account][:balance_brought_forward])]
