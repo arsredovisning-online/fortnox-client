@@ -21,7 +21,7 @@ class ResultEnumerator
         yield item
       end
 
-      break if current_page == total_pages
+      break if current_page >= total_pages
       params_with_page.merge!(page: current_page + 1)
     end
   end
