@@ -92,7 +92,10 @@ describe FortnoxApi, :vcr do
       VCR.use_cassette "fortnox/get_single_account" do
         url = 'https://api.fortnox.se/3/accounts/1931?financialyear=2'
         account = api.get_account(url)
-        expect(account).to eq OpenStruct.new(account: 1931, balance_brought_forward: 0, balance_carried_forward: 3002.91)
+        expect(account).to eq OpenStruct.new(account: 1931,
+                                             description: 'Företagskonto, Swedbank',
+                                             balance_brought_forward: 0,
+                                             balance_carried_forward: 3002.91)
       end
     end
 
