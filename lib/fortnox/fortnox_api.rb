@@ -38,7 +38,7 @@ class FortnoxApi
     rows = voucher['VoucherRows'].map do |voucher_row|
       OpenStruct.new(account: voucher_row['Account'], credit: decimal(voucher_row['Credit']), debit: decimal(voucher_row['Debit']))
     end
-    { voucher_number: voucher['VoucherNumber'], rows: rows}
+    { number: voucher['VoucherNumber'], rows: rows}
   end
 
   def get_account_urls(financial_year_id)
@@ -51,7 +51,7 @@ class FortnoxApi
   def get_account(url)
     response = client.get(FortnoxUrl.new(url))
     account = JSON.parse(response)['Account']
-    OpenStruct.new(account: account['Number'],
+    OpenStruct.new(number: account['Number'],
                    description: account['Description'],
                    balance_brought_forward: decimal(account['BalanceBroughtForward']),
                    balance_carried_forward: decimal(account['BalanceCarriedForward']))

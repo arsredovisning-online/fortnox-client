@@ -62,7 +62,7 @@ describe FortnoxApi, :vcr do
       VCR.use_cassette "fortnox/get_single_voucher" do
         url = "https://api.fortnox.se/3/vouchers/A/17?financialyear=2"
         expected_result = {
-            voucher_number: 17,
+            number: 17,
             rows: [
                 OpenStruct.new(account: 5420, credit: 0, debit: 370.78),
                 OpenStruct.new(account: 1910, credit: 370.78, debit: 0),
@@ -92,7 +92,7 @@ describe FortnoxApi, :vcr do
       VCR.use_cassette "fortnox/get_single_account" do
         url = 'https://api.fortnox.se/3/accounts/1931?financialyear=2'
         account = api.get_account(url)
-        expect(account).to eq OpenStruct.new(account: 1931,
+        expect(account).to eq OpenStruct.new(number: 1931,
                                              description: 'Företagskonto, Swedbank',
                                              balance_brought_forward: 0,
                                              balance_carried_forward: 3002.91)
