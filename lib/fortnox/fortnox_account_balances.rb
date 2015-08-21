@@ -1,4 +1,8 @@
+require 'thread'
+
 class FortnoxAccountBalances
+  THREAD_COUNT = 10
+
   def initialize(api, to_date)
     @api = api
     @to_date = to_date
@@ -45,28 +49,69 @@ class FortnoxAccountBalances
 
   def account_data
     unless @account_data
-      @account_data = Hash.new
       year_id = api.get_financial_year_for(to_date)
       account_urls = api.get_account_urls(year_id)
-      account_urls.each { |url|
-        account_data = api.get_account(url)
-        account_number = account_data[:account]
-        @account_data[account_number] = account_data
-      }
+      @account_data = fetch_account_data_in_parallel(account_urls)
+      # account_urls.each { |url|
+      #   account_data = api.get_account(url)
+      #   account_number = account_data[:account]
+      #   @account_data[account_number] = account_data
+      # }
     end
     @account_data
   end
 
-  def vouchers()
+  def fetch_account_data_in_parallel(account_urls)
+    account_data = Hash.new
+    queue = Queue.new
+    chunk_size = account_urls.length / THREAD_COUNT + 1
+    workers = account_urls.each_slice(chunk_size).map do |slice|
+      Thread.new do
+        slice.each { |url|
+          queue << api.get_account(url)
+        }
+      end
+    end
+    workers.map(&:join)
+    until queue.empty? do
+      account = queue.pop
+      account_number = account[:account]
+      account_data[account_number] = account
+    end
+    account_data
+  end
+
+  def fetch_voucher_data_in_parallel(voucher_urls)
+    voucher_data = Hash.new
+    queue = Queue.new
+    chunk_size = voucher_urls.length / THREAD_COUNT + 1
+    workers = voucher_urls.each_slice(chunk_size).map do |slice|
+      Thread.new do
+        slice.each { |url|
+          queue << api.get_voucher(url)
+        }
+      end
+    end
+    workers.map(&:join)
+    until queue.empty? do
+      voucher = queue.pop
+      account_number = voucher[:account]
+      voucher_data[account_number] = voucher
+    end
+    voucher_data
+  end
+
+  def vouchers
     voucher_data = Hash.new
     year_id = api.get_financial_year_for(from_date)
-    account_urls = api.get_account_urls(year_id)
-    account_urls.each { |url|
-      account_data = api.get_account(url)
-      account_number = account_data[:account]
-      voucher_data[account_number] = account_data
-    }
-    voucher_data
+    voucher_urls = api.get_voucher_urls(year_id)
+    # voucher_urls.each { |url|
+    #   voucher_data = api.get_account(url)
+    #   account_number = voucher_data[:account]
+    #   voucher_data[account_number] = voucher_data
+    # }
+    # voucher_data
+    fetch_voucher_data_in_parallel(voucher_urls)
   end
 
   attr_reader :api, :to_date

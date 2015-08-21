@@ -14269,4 +14269,267 @@ http_interactions:
         moms","Debit":35.7,"Project":0,"Removed":false,"TransactionInformation":""}],"VoucherSeries":"A","Year":2}}'
     http_version: 
   recorded_at: Wed, 19 Aug 2015 09:07:50 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/8990?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2015 06:37:18 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '340'
+      X-Uid:
+      - 0c451860
+      X-Build:
+      - a26e874715
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/8990?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":0,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"Resultat","Number":8990,"Project":0,"ProjectSettings":"ALLOWED","SRU":7528,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2015 06:37:21 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/7699?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2015 06:37:18 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '280'
+      X-Uid:
+      - ff84fa51
+      X-Build:
+      - a26e874715
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/7699?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":7533.05,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"\u00d6vriga
+        personalkostnader","Number":7699,"Project":0,"ProjectSettings":"ALLOWED","SRU":7514,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2015 06:37:21 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/5710?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2015 06:37:18 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '400'
+      X-Uid:
+      - da965cf4
+      X-Build:
+      - a26e874715
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/5710?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":0,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"Frakter,
+        transporter och f\u00f6rs\u00e4kringar vid varudistribution","Number":5710,"Project":0,"ProjectSettings":"ALLOWED","SRU":7513,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2015 06:37:21 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/6570?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2015 06:37:18 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '460'
+      X-Uid:
+      - ffa20b9a
+      X-Build:
+      - a26e874715
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/6570?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":1250,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"Bankkostnader","Number":6570,"Project":0,"ProjectSettings":"ALLOWED","SRU":7513,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2015 06:37:21 GMT
+- request:
+    method: get
+    uri: https://api.fortnox.se/3/accounts/2893?financialyear=2
+    body:
+      encoding: US-ASCII
+      string: ''
+    headers:
+      Access-Token:
+      - dd49b5e5-032d-424b-93ad-7a62e15064c6
+      Client-Secret:
+      - GkEhaNS5h9
+      Accept:
+      - application/json
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      User-Agent:
+      - Ruby
+      Host:
+      - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Fri, 21 Aug 2015 06:37:18 GMT
+      Content-Type:
+      - application/json
+      Connection:
+      - close
+      Vary:
+      - Accept-Encoding
+      - Accept-Encoding
+      X-Rack-Responsetime:
+      - '220'
+      X-Uid:
+      - 027fb31e
+      X-Build:
+      - a26e874715
+      X-Powered-By:
+      - Rack 1.1
+    body:
+      encoding: UTF-8
+      string: '{"Account":{"@url":"https:\/\/api.fortnox.se\/3\/accounts\/2893?financialyear=2","Active":true,"BalanceBroughtForward":0,"BalanceCarriedForward":0,"CostCenter":"","CostCenterSettings":"ALLOWED","Description":"Skulder
+        till n\u00e4rst\u00e5ende personer, kortfristig del","Number":2893,"Project":0,"ProjectSettings":"ALLOWED","SRU":7369,"TransactionInformation":"","TransactionInformationSettings":"ALLOWED","VATCode":null,"Year":2}}'
+    http_version: 
+  recorded_at: Fri, 21 Aug 2015 06:37:21 GMT
 recorded_with: VCR 2.9.3
