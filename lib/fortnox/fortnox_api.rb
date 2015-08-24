@@ -3,6 +3,7 @@ require_relative 'result_enumerator'
 require_relative 'null_logger'
 require 'ostruct'
 require 'json'
+require 'bigdecimal'
 require 'bigdecimal/util'
 
 class FortnoxApi
@@ -35,7 +36,7 @@ class FortnoxApi
   def get_voucher(url)
     response = client.get(FortnoxUrl.new(url))
     voucher = JSON.parse(response)['Voucher']
-    rows = voucher['VoucherRows'].map do |voucher_row|
+    rows = voucher['VoucherRows'].reject { |voucher_row| voucher_row['Removed'] }.map do |voucher_row|
       OpenStruct.new(account: voucher_row['Account'], credit: decimal(voucher_row['Credit']), debit: decimal(voucher_row['Debit']))
     end
     { number: voucher['VoucherNumber'], rows: rows}
@@ -62,6 +63,6 @@ class FortnoxApi
   attr_reader :client, :page_size
 
   def decimal(number)
-    number.to_d.truncate(2)
+    number.to_d.round(2)
   end
 end

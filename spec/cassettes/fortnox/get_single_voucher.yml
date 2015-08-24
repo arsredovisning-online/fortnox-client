@@ -19,6 +19,10 @@ http_interactions:
       - Ruby
       Host:
       - api.fortnox.se
+      Connection:
+      - keep-alive
+      Keep-Alive:
+      - 30
   response:
     status:
       code: 200
@@ -27,7 +31,7 @@ http_interactions:
       Server:
       - nginx
       Date:
-      - Thu, 18 Sep 2014 05:45:22 GMT
+      - Mon, 24 Aug 2015 11:19:40 GMT
       Content-Type:
       - application/json
       Connection:
@@ -36,21 +40,21 @@ http_interactions:
       - Accept-Encoding
       - Accept-Encoding
       X-Rack-Responsetime:
-      - '192'
+      - '39'
       X-Uid:
-      - e892012d
+      - 4c68c768
       X-Build:
-      - '53646'
+      - a26e874715
       X-Powered-By:
       - Rack 1.1
     body:
       encoding: UTF-8
-      string: '{"Voucher":{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/17?financialyear=2","Comments":null,"CostCenter":"","Description":"Programvara","Project":0,"ReferenceNumber":"","ReferenceType":"MANUAL","TransactionDate":"2011-09-22","VoucherNumber":17,"VoucherRows":[{"Account":5420,"CostCenter":"","Credit":0,"Description":"Programvaror","Debit":370.78,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":1910,"CostCenter":"","Credit":370.78,"Description":"Kassa","Debit":0,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":2640,"CostCenter":"","Credit":0,"Description":"Ing\u00e5ende
-        moms","Debit":92.7,"Project":0,"Removed":0,"TransactionInformation":""},{"Account":2614,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
+      string: '{"Voucher":{"@url":"https:\/\/api.fortnox.se\/3\/vouchers\/A\/17?financialyear=2","Comments":null,"CostCenter":"","Description":"Programvara","Project":0,"ReferenceNumber":"","ReferenceType":"MANUAL","TransactionDate":"2011-09-22","VoucherNumber":17,"VoucherRows":[{"Account":5420,"CostCenter":"","Credit":0,"Description":"Programvaror","Debit":370.78,"Project":0,"Removed":false,"TransactionInformation":""},{"Account":1910,"CostCenter":"","Credit":370.78,"Description":"Kassa","Debit":0,"Project":0,"Removed":false,"TransactionInformation":""},{"Account":2640,"CostCenter":"","Credit":0,"Description":"Ing\u00e5ende
+        moms","Debit":92.7,"Project":0,"Removed":false,"TransactionInformation":""},{"Account":2614,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
         utg\u00e5ende moms p\u00e5 tj\u00e4nstef\u00f6rv\u00e4rv fr\u00e5n utlandet,
-        oreducerad","Debit":0,"Project":0,"Removed":1,"TransactionInformation":""},{"Account":2615,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
+        oreducerad","Debit":0,"Project":0,"Removed":true,"TransactionInformation":""},{"Account":2615,"CostCenter":"","Credit":92.7,"Description":"Ber\u00e4knad
         utg\u00e5ende moms p\u00e5 varuf\u00f6rv\u00e4rv fr\u00e5n annat EU-land,
-        oreducerad","Debit":0,"Project":0,"Removed":0,"TransactionInformation":""}],"VoucherSeries":"A","Year":2}}'
+        oreducerad","Debit":0,"Project":0,"Removed":false,"TransactionInformation":""}],"VoucherSeries":"A","Year":2}}'
     http_version: 
-  recorded_at: Thu, 18 Sep 2014 05:45:22 GMT
-recorded_with: VCR 2.7.0
+  recorded_at: Mon, 24 Aug 2015 11:19:40 GMT
+recorded_with: VCR 2.9.3

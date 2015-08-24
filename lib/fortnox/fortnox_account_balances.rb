@@ -27,7 +27,7 @@ class FortnoxAccountBalances
         }
     ]
     res = voucher_data
-    res.each do |number, voucher|
+    res.each do |voucher|
       voucher[:rows].each do |row|
         balances[row[:account]] = balances[row[:account]] + row[:debit] - row[:credit]
       end
@@ -49,13 +49,14 @@ class FortnoxAccountBalances
     unless @account_data
       year_id = api.get_financial_year_for(to_date)
       account_urls = api.get_account_urls(year_id)
-      @account_data = fetch_data_in_parallel(account_urls, :get_account)
+      data = fetch_data_in_parallel(account_urls, :get_account)
+      @account_data = Hash[data.map { |account| [account[:number], account]}]
     end
     @account_data
   end
 
   def fetch_data_in_parallel(urls, api_method)
-    result = Hash.new
+    result = []
     queue = Queue.new
     chunk_size = urls.length / thread_count + 1
     workers = urls.each_slice(chunk_size).map do |slice|
@@ -67,16 +68,14 @@ class FortnoxAccountBalances
     end
     workers.map(&:join)
     until queue.empty? do
-      data = queue.pop
-      number = data[:number]
-      result[number] = data
+      result << queue.pop
     end
     result
   end
 
   def voucher_data
     year_id = api.get_financial_year_for(to_date)
-    voucher_urls = api.get_voucher_urls(year_id)
+    voucher_urls = api.get_voucher_urls(year_id, to_date)
     fetch_data_in_parallel(voucher_urls, :get_voucher)
   end
 

@@ -67,7 +67,6 @@ describe FortnoxApi, :vcr do
                 OpenStruct.new(account: 5420, credit: 0, debit: 370.78),
                 OpenStruct.new(account: 1910, credit: 370.78, debit: 0),
                 OpenStruct.new(account: 2640, credit: 0, debit: 92.7),
-                OpenStruct.new(account: 2614, credit: 92.7, debit: 0),
                 OpenStruct.new(account: 2615, credit: 92.7, debit: 0),
             ]
         }
