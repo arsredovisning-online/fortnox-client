@@ -43,7 +43,6 @@ class FortnoxAccountBalances
     res.each do |voucher|
       voucher[:rows].each do |row|
         result[row[:account]] = result[row[:account]] + row[:debit] - row[:credit]
-        puts row[:account]
       end
     end
     result
