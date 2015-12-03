@@ -36,13 +36,13 @@ class FortnoxAccountBalances
   def account_balances(accounts = all_account_numbers)
     result = Hash[
         accounts.map {|account_no|
-          [account_no, FortnoxAccount.new(account_no, BigDecimal.new(account_data[account_no][:balance_brought_forward]))]
+          [account_no, BigDecimal.new(account_data[account_no][:balance_brought_forward])]
         }
     ]
     res = voucher_data
     res.each do |voucher|
       voucher[:rows].each do |row|
-        result[row[:account]].balance = result[row[:account]].balance + row[:debit] - row[:credit]
+        result[row[:account]] = result[row[:account]] + row[:debit] - row[:credit]
         puts row[:account]
       end
     end

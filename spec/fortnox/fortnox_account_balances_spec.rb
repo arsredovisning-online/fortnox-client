@@ -32,9 +32,8 @@ describe FortnoxAccountBalances, :vcr do
           2999 => BigDecimal.new('-3000.00'),
       }
       VCR.use_cassette 'fortnox/account_balances' do
-        relevant_accounts = balances.account_balances.select { |account_no, account| account.balance.nonzero? && account_no < 3000 }
-        account_balances = relevant_accounts.update(relevant_accounts) {|account_no, account| account.balance}
-        expect(account_balances).to eq(expected_result)
+        relevant_accounts = balances.account_balances.select { |account_no, balance| balance.nonzero? && account_no < 3000 }
+        expect(relevant_accounts).to eq(expected_result)
       end
     end
   end
