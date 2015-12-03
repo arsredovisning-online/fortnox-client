@@ -1,4 +1,5 @@
 require 'thread'
+require_relative 'fortnox_account'
 
 class FortnoxAccountBalances
 
@@ -22,17 +23,18 @@ class FortnoxAccountBalances
 
   def account_balances(accounts = all_accounts)
     balances = Hash[
-        accounts.map {|account|
-          [account, BigDecimal.new(account_data[account][:balance_brought_forward])]
+        accounts.map {|account_no|
+          [account_no, FortnoxAccount.new(account_no, BigDecimal.new(account_data[account_no][:balance_brought_forward]))]
         }
     ]
     res = voucher_data
     res.each do |voucher|
       voucher[:rows].each do |row|
-        balances[row[:account]] = balances[row[:account]] + row[:debit] - row[:credit]
+        balances[row[:account]].balance = balances[row[:account]].balance + row[:debit] - row[:credit]
       end
     end
     balances
+
   end
 
   def account_descriptions(accounts)
