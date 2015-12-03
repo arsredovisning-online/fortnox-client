@@ -38,4 +38,24 @@ describe FortnoxAccountBalances, :vcr do
       end
     end
   end
+
+  describe '#accounts' do
+    let(:balances) { FortnoxAccountBalances.new(api, Date.new(2015, 7, 31), 1) }
+
+    it 'retrieves complete account for account no' do
+
+      VCR.use_cassette 'fortnox/account_balances' do
+        relevant_accounts = balances.accounts.select { |account_no, account| account.balance.nonzero? && account_no < 3000 }
+        expect(relevant_accounts[1510].number).to eq(1510)
+        expect(relevant_accounts[1510].balance).to eq(BigDecimal.new('125.00'))
+        expect(relevant_accounts[1510].description).to eq('Kundfordringar')
+        expect(relevant_accounts[1510].has_verifications).to be_falsey
+
+        expect(relevant_accounts[1930].number).to eq(1930)
+        expect(relevant_accounts[1930].balance).to eq(BigDecimal.new('243877.44'))
+        expect(relevant_accounts[1930].description).to eq('Företagskonto / checkkonto / affärskonto')
+        expect(relevant_accounts[1930].has_verifications).to be_truthy
+      end
+    end
+  end
 end

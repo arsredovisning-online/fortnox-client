@@ -9,20 +9,32 @@ class FortnoxAccountBalances
     @thread_count = thread_count
   end
 
-  def all_accounts
+  def all_account_numbers
     account_data.keys
   end
 
-  def account_balances_carried_forward(accounts)
-    Hash[
-        accounts.map {|account|
-          [account, account_data[account][:balance_carried_forward]]
+  def accounts(accounts = all_account_numbers)
+    result = Hash[
+        accounts.map {|account_no|
+          [account_no,
+           FortnoxAccount.new(
+               account_no,
+               BigDecimal.new(account_data[account_no][:balance_brought_forward]),
+               account_data[account_no][:description])]
         }
     ]
+    res = voucher_data
+    res.each do |voucher|
+      voucher[:rows].each do |row|
+        result[row[:account]].balance = result[row[:account]].balance + row[:debit] - row[:credit]
+        result[row[:account]].has_verifications = true
+      end
+    end
+    result
   end
 
-  def account_balances(accounts = all_accounts)
-    balances = Hash[
+  def account_balances(accounts = all_account_numbers)
+    result = Hash[
         accounts.map {|account_no|
           [account_no, FortnoxAccount.new(account_no, BigDecimal.new(account_data[account_no][:balance_brought_forward]))]
         }
@@ -30,14 +42,15 @@ class FortnoxAccountBalances
     res = voucher_data
     res.each do |voucher|
       voucher[:rows].each do |row|
-        balances[row[:account]].balance = balances[row[:account]].balance + row[:debit] - row[:credit]
+        result[row[:account]].balance = result[row[:account]].balance + row[:debit] - row[:credit]
+        puts row[:account]
       end
     end
-    balances
+    result
 
   end
 
-  def account_descriptions(accounts)
+  def account_descriptions(accounts = all_account_numbers)
     Hash[
         accounts.map {|account|
           [account, account_data[account][:description]]
