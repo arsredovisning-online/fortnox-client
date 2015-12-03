@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    fortnox-client (0.0.1)
+    fortnox-client (0.0.2)
       net-http-persistent
 
 GEM
@@ -39,3 +39,6 @@ DEPENDENCIES
   rspec
   vcr
   webmock
+
+BUNDLED WITH
+   1.10.6
