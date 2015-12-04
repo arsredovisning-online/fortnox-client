@@ -34,30 +34,6 @@ class FortnoxAccountBalances
     result
   end
 
-  def account_balances(accounts = all_account_numbers)
-    result = Hash[
-        accounts.map {|account_no|
-          [account_no, BigDecimal.new(account_data[account_no][:balance_brought_forward])]
-        }
-    ]
-    res = voucher_data
-    res.each do |voucher|
-      voucher[:rows].each do |row|
-        result[row[:account]] = result[row[:account]] + row[:debit] - row[:credit]
-      end
-    end
-    result
-
-  end
-
-  def account_descriptions(accounts = all_account_numbers)
-    Hash[
-        accounts.map {|account|
-          [account, account_data[account][:description]]
-        }
-    ]
-  end
-
   private
 
   def account_data

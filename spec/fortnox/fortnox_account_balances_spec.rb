@@ -13,30 +13,6 @@ describe FortnoxAccountBalances, :vcr do
   let(:logger) { double("logger").as_null_object }
   let(:api) { FortnoxApi.new(ACCESS_TOKEN, CLIENT_SECRET, logger: logger) }
 
-  describe '#account_balances' do
-    let(:balances) { FortnoxAccountBalances.new(api, Date.new(2015, 7, 31), 1) }
-
-    it 'retrieves account balances' do
-      expected_result = {
-          1510 => BigDecimal.new('125.00'),
-          1630 => BigDecimal.new('853.00'),
-          1920 => BigDecimal.new('488664.08'),
-          1930 => BigDecimal.new('243877.44'),
-          2081 => BigDecimal.new('-50000.00'),
-          2091 => BigDecimal.new('-157515.90'),
-          2099 => BigDecimal.new('-159412.74'),
-          2440 => BigDecimal.new('-190187.50'),
-          2510 => BigDecimal.new('-14986.76'),
-          2611 => BigDecimal.new('-25.00'),
-          2650 => BigDecimal.new('-85965.00'),
-          2999 => BigDecimal.new('-3000.00'),
-      }
-      VCR.use_cassette 'fortnox/account_balances' do
-        relevant_accounts = balances.account_balances.select { |account_no, balance| balance.nonzero? && account_no < 3000 }
-        expect(relevant_accounts).to eq(expected_result)
-      end
-    end
-  end
 
   describe '#accounts' do
     let(:balances) { FortnoxAccountBalances.new(api, Date.new(2015, 7, 31), 1) }
