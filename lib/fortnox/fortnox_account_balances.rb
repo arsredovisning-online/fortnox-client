@@ -20,6 +20,7 @@ class FortnoxAccountBalances
            FortnoxAccount.new(
                account_no,
                BigDecimal.new(account_data[account_no][:balance_brought_forward]),
+               to_date,
                account_data[account_no][:description])]
         }
     ]

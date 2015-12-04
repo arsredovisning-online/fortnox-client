@@ -13,7 +13,7 @@ describe FortnoxAccount do
   end
 
   context 'attributes' do
-    let (:all_attributes) {FortnoxAccount.new('1930', 100.00, 'Bankkonto', false)}
+    let (:all_attributes) {FortnoxAccount.new('1930', 100.00, Date.new(2015, 12, 31) ,'Bankkonto', false)}
 
     describe '#number' do
       it 'responds with the number' do
@@ -24,6 +24,12 @@ describe FortnoxAccount do
     describe '#balance' do
       it 'responds with the balance' do
         expect(all_attributes.balance).to eq(100.00)
+      end
+    end
+
+    describe '#balance_date' do
+      it 'responds with the balance date' do
+        expect(all_attributes.balance_date).to eq(Date.new(2015, 12, 31))
       end
     end
 
