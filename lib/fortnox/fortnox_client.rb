@@ -9,6 +9,7 @@ class FortnoxClient
     @logger = logger
     @headers = headers.merge('Accept' => 'application/json')
     @http = Net::HTTP::Persistent.new 'FortnoxClient'
+    @http.verify_mode = OpenSSL::SSL::VERIFY_NONE
   end
 
   def get(url)
@@ -25,13 +26,6 @@ class FortnoxClient
   private
 
   attr_reader :logger
-
-  def client(uri)
-    client = Net::HTTP.new(uri.host, uri.port)
-    client.use_ssl = true
-    client.verify_mode = OpenSSL::SSL::VERIFY_NONE
-    client
-  end
 
   def verify_status(response)
     status = response.code
