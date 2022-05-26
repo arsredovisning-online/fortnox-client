@@ -1,6 +1,6 @@
 Gem::Specification.new do |s|
   s.name        = 'fortnox-client'
-  s.version     = '0.0.3'
+  s.version     = '0.0.4'
   s.date        = '2015-12-03'
   s.summary     = "Fortnox client"
   s.description = "Fortnox client limited to account balances, description and verification idicator"
